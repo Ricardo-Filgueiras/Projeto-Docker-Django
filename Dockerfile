@@ -1,34 +1,47 @@
+FROM ghcr.io/astral-sh/uv:latest AS uv
+
 FROM python:3.12-alpine
 
 LABEL maintainer="ricardo-filgueiras"
 
-ENV PYTHONDONTWRITEBYTECODE 1
+# Instala o binário do uv a partir da imagem oficial
+COPY --from=uv /uv /uvx /bin/
 
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE=1
 
-COPY djangoapp /djangoapp
+ENV PYTHONUNBUFFERED=1
+ENV UV_PROJECT_ENVIRONMENT="/venv"
+ENV UV_COMPILE_BYTECODE=1
 
-COPY scripts /scripts 
+WORKDIR /app
 
-WORKDIR /djangoapp
+COPY pyproject.toml uv.lock README.md ./
+COPY src /app
+COPY scripts /app/scripts
 
-EXPOSE 8000
+RUN apk update && apk add --no-cache \
+    postgresql-client \
+    curl \
+    build-base \
+    python3-dev 
 
-RUN python -m venv /venv && \
-  /venv/bin/pip install --upgrade pip && \
-  /venv/bin/pip install -r /djangoapp/requirements.txt && \
-  adduser --disabled-password --no-create-home duser && \
-  mkdir -p /data/web/static && \
-  mkdir -p /data/web/media && \
-  chown -R duser:duser /venv && \
-  chown -R duser:duser /data/web/static && \
-  chown -R duser:duser /data/web/media && \
-  chmod -R 755 /data/web/static && \
-  chmod -R 755 /data/web/media && \
-  chmod -R +x /scripts
+RUN uv sync --frozen --no-dev --no-install-project && \
+    adduser --disabled-password --no-create-home duser && \
+    mkdir -p /data/web/static && \
+    mkdir -p /data/web/media && \
+    chown -R duser:duser /app && \
+    chown -R duser:duser /venv && \
+    chown -R duser:duser /data/web/static && \
+    chown -R duser:duser /data/web/media && \
+    chmod -R 755 /data/web/static && \
+    chmod -R 755 /data/web/media && \
+    chmod -R +x /app/scripts
 
-ENV PATH="/scripts:/venv/bin:$PATH"
+ENV PATH="/app/scripts:/venv/bin:$PATH"
 
 USER duser
 
-CMD [ "commands.sh" ]
+# Expondo a porta correta para documentação
+EXPOSE 8000
+
+CMD ["sh", "/app/scripts/entrypoint_prod.sh"]
