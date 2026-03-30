@@ -6,3 +6,5 @@ from django.shortcuts import render
 #     path('home/', views.index, name='index'),
 # ] 
 
+def index(request):
+    return render(request, 'index.html')
