@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projeto Lista - Plataforma moderna de gerenciamento com Django, Docker e UV">
+    <meta name="theme-color" content="#007AFF">
+    <title>{% block title %}Projeto Lista - Django com Docker e UV{% endblock %}</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{% static 'images/favicon.svg' %}">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Iconify Icons -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Design System CSS -->
+    <link rel="stylesheet" href="{% static 'css/design-system.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+    
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <nav>
+        <div class="container-base py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <iconify-icon icon="solar:folder-list-bold" class="text-2xl" style="color: var(--color-accent-primary);"></iconify-icon>
+                <span class="font-bold text-lg tracking-tighter">Projeto Lista</span>
+            </div>
+            <div class="flex gap-8 text-sm font-medium">
+                <a href="#features" class="hover:text-blue-600 transition-colors">Funcionalidades</a>
+                <a href="#tech" class="hover:text-blue-600 transition-colors">Tecnologia</a>
+                <a href="#cta" class="hover:text-blue-600 transition-colors">Começar</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="border-t bg-surface mt-24">
+        <div class="container-base py-16">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <iconify-icon icon="solar:folder-list-bold" class="text-xl" style="color: var(--color-accent-primary);"></iconify-icon>
+                        <span class="font-bold">Projeto Lista</span>
+                    </div>
+                    <p class="text-xs text-muted">Plataforma moderna para gerenciamento de listas com Docker e UV.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-sm mb-4">Produto</h4>
+                    <ul class="text-xs text-muted space-y-2">
+                        <li><a href="#" class="hover:text-blue-600">Funcionalidades</a></li>
+                        <li><a href="#" class="hover:text-blue-600">Documentação</a></li>
+                        <li><a href="#" class="hover:text-blue-600">Exemplos</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-sm mb-4">Comunidade</h4>
+                    <ul class="text-xs text-muted space-y-2">
+                        <li><a href="#" class="hover:text-blue-600">GitHub</a></li>
+                        <li><a href="#" class="hover:text-blue-600">Discord</a></li>
+                        <li><a href="#" class="hover:text-blue-600">Twitter</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-sm mb-4">Legal</h4>
+                    <ul class="text-xs text-muted space-y-2">
+                        <li><a href="#" class="hover:text-blue-600">Privacidade</a></li>
+                        <li><a href="#" class="hover:text-blue-600">Termos</a></li>
+                        <li><a href="#" class="hover:text-blue-600">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t pt-8 text-xs text-muted text-center">
+                <p>&copy; 2026 Projeto Lista. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Main JavaScript -->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

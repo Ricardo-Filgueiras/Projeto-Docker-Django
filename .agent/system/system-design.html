@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Lista - Design System v1.0</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Colors */
+            --color-neutral-white: #FFFFFF;
+            --color-neutral-bg: #FAFAFA;
+            --color-neutral-gray-light: #F2F2F7;
+            --color-neutral-border: #E5E5EA;
+            --color-neutral-text-main: #1C1C1E;
+            --color-neutral-text-muted: #8E8E93;
+            --color-accent-primary: #007AFF;
+            --color-semantic-success: #34C759;
+            --color-semantic-warning: #FF9500;
+            --color-semantic-danger: #FF3B30;
+
+            /* Spacing */
+            --space-1: 8px;
+            --space-2: 16px;
+            --space-3: 24px;
+            --space-4: 32px;
+
+            /* Radius */
+            --radius-md: 8px;
+            --radius-lg: 12px;
+
+            /* Motion */
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-default: 300ms var(--ease-out-expo);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-neutral-bg);
+            color: var(--color-neutral-text-main);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .container-base {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: var(--space-4);
+        }
+
+        /* Utility Classes (Custom Tokens Mapping) */
+        .bg-surface { background-color: var(--color-neutral-white); }
+        .border-base { border: 1px solid var(--color-neutral-border); }
+        .text-main { color: var(--color-neutral-text-main); }
+        .text-muted { color: var(--color-neutral-text-muted); }
+        .rounded-ds { border-radius: var(--radius-md); }
+        .shadow-ds { box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+
+        /* Components */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 24px;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-default);
+            border: none;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--color-accent-primary);
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #0066D6;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background-color: var(--color-neutral-gray-light);
+            color: var(--color-neutral-text-main);
+        }
+        .btn-secondary:hover {
+            background-color: #E5E5EA;
+        }
+
+        .badge {
+            display: inline-flex;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .badge-success { background-color: rgba(52, 199, 89, 0.1); color: var(--color-semantic-success); }
+        .badge-warning { background-color: rgba(255, 149, 0, 0.1); color: var(--color-semantic-warning); }
+        .badge-info { background-color: rgba(0, 122, 255, 0.1); color: var(--color-accent-primary); }
+
+        .input-base {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--color-neutral-border);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            outline: none;
+            transition: var(--transition-default);
+        }
+        .input-base:focus {
+            border-color: var(--color-accent-primary);
+            box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.1);
+        }
+
+        /* Kanban Simulator */
+        .kanban-column {
+            background-color: var(--color-neutral-gray-light);
+            border-radius: var(--radius-lg);
+            padding: 16px;
+            width: 320px;
+            min-height: 500px;
+        }
+
+        .kanban-card {
+            background-color: var(--color-neutral-white);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            margin-bottom: 12px;
+            border: 1px solid var(--color-neutral-border);
+            cursor: grab;
+            transition: var(--transition-default);
+        }
+        .kanban-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        /* Animations */
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .loading-shimmer {
+            background: linear-gradient(90deg, #F2F2F7 25%, #E5E5EA 50%, #F2F2F7 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite linear;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="border-b bg-white sticky top-0 z-50">
+        <div class="container-base py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <iconify-icon icon="solar:folder-list-bold" class="text-2xl text-blue-600"></iconify-icon>
+                <span class="font-bold text-lg tracking-tighter uppercase">Projeto Lista</span>
+                <span class="text-[10px] font-mono bg-slate-100 px-2 py-0.5 rounded text-slate-500">v1.0</span>
+            </div>
+            <div class="flex gap-6 text-sm font-medium">
+                <a href="#tokens" class="hover:text-blue-600">Tokens</a>
+                <a href="#components" class="hover:text-blue-600">Componentes</a>
+                <a href="#states" class="hover:text-blue-600">Estados</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container-base pb-24">
+
+        <!-- Header -->
+        <header class="py-16">
+            <h1 class="text-4xl font-bold tracking-tight mb-4">Design System Operacional</h1>
+            <p class="text-muted text-lg max-w-2xl">
+                Baseado nos princípios de clareza e eficiência. Construído para ser robusto para lojistas e fluido para famílias.
+            </p>
+        </header>
+
+        <!-- Layer 2: Tokens -->
+        <section id="tokens" class="mb-24">
+            <h2 class="text-xs font-bold uppercase tracking-widest text-muted mb-8">Camada 2 — Design Tokens</h2>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                <div class="space-y-2">
+                    <div class="h-24 w-full rounded-ds bg-white border"></div>
+                    <p class="text-[10px] font-mono">White / #FFFFFF</p>
+                </div>
+                <div class="space-y-2">
+                    <div class="h-24 w-full rounded-ds bg-[#1C1C1E]"></div>
+                    <p class="text-[10px] font-mono">Ink / #1C1C1E</p>
+                </div>
+                <div class="space-y-2">
+                    <div class="h-24 w-full rounded-ds bg-[#007AFF]"></div>
+                    <p class="text-[10px] font-mono">Primary / #007AFF</p>
+                </div>
+                <div class="space-y-2">
+                    <div class="h-24 w-full rounded-ds bg-[#34C759]"></div>
+                    <p class="text-[10px] font-mono">Success / #34C759</p>
+                </div>
+                <div class="space-y-2">
+                    <div class="h-24 w-full rounded-ds bg-[#FF9500]"></div>
+                    <p class="text-[10px] font-mono">Warning / #FF9500</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Layer 3: Components -->
+        <section id="components" class="mb-24">
+            <h2 class="text-xs font-bold uppercase tracking-widest text-muted mb-8">Camada 3 — Componentes Base</h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                
+                <!-- Buttons & Inputs -->
+                <div class="space-y-12">
+                    <div>
+                        <h3 class="text-sm font-semibold mb-6">Botões</h3>
+                        <div class="flex flex-wrap gap-4">
+                            <button class="btn btn-primary">Ação Primária</button>
+                            <button class="btn btn-secondary">Secundária</button>
+                            <button class="btn border border-[#E5E5EA] bg-transparent">Outline</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-sm font-semibold mb-6">Campos de Entrada</h3>
+                        <div class="space-y-4 max-w-sm">
+                            <input type="text" placeholder="Nome da Lista" class="input-base">
+                            <div class="relative">
+                                <iconify-icon icon="solar:magnifer-linear" class="absolute left-3 top-3.5 text-slate-400"></iconify-icon>
+                                <input type="text" placeholder="Buscar colégio..." class="input-base pl-10">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-sm font-semibold mb-6">Badges de Status</h3>
+                        <div class="flex gap-4">
+                            <span class="badge badge-info">Lista Aberta</span>
+                            <span class="badge badge-warning">Em Separação</span>
+                            <span class="badge badge-success">Pronto</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kanban Preview -->
+                <div>
+                    <h3 class="text-sm font-semibold mb-6">Pipeline do Lojista (Kanban)</h3>
+                    <div class="kanban-column">
+                        <div class="flex justify-between items-center mb-4 px-2">
+                            <span class="text-xs font-bold uppercase text-slate-500">A processar (3)</span>
+                            <iconify-icon icon="solar:menu-dots-bold" class="text-slate-400"></iconify-icon>
+                        </div>
+                        
+                        <div class="kanban-card">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-[10px] font-bold text-blue-600">ID #882</span>
+                                <span class="text-[10px] text-slate-400">12 min ago</span>
+                            </div>
+                            <h4 class="text-sm font-semibold mb-1">Colégio Santo Agostinho</h4>
+                            <p class="text-xs text-slate-500">2º Ano Fundamental - Manhã</p>
+                            <div class="mt-4 flex items-center justify-between">
+                                <span class="badge badge-info text-[9px]">Pendente</span>
+                                <div class="flex -space-x-2">
+                                    <div class="w-6 h-6 rounded-full bg-slate-200 border-2 border-white"></div>
+                                    <div class="w-6 h-6 rounded-full bg-slate-300 border-2 border-white"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="kanban-card">
+                            <h4 class="text-sm font-semibold mb-1">Escola Móbile</h4>
+                            <p class="text-xs text-slate-500">9º Ano - Kit Básico</p>
+                            <div class="mt-4">
+                                <span class="badge badge-warning text-[9px]">Urgente</span>
+                            </div>
+                        </div>
+
+                        <!-- Loading State -->
+                        <div class="kanban-card loading-shimmer h-24 border-none opacity-50"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Footer -->
+        <footer class="mt-24 pt-16 border-t">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div>
+                    <h4 class="font-bold mb-4">Lógica de Design</h4>
+                    <p class="text-xs text-muted leading-relaxed">
+                        Inspirado na precisão da Apple, mas com foco operacional B2B. O azul reforça confiança, o cinza estrutura a organização e o motion confirma a eficiência técnica.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Diretrizes de Uso</h4>
+                    <ul class="text-xs text-muted space-y-2">
+                        <li>• Use padding generoso entre seções.</li>
+                        <li>• Evite mais de 2 cores por componente.</li>
+                        <li>• Manter cantos arredondados fixos em 8px.</li>
+                    </ul>
+                </div>
+                <div class="text-right">
+                    <button class="btn btn-primary">Baixar Assets (.zip)</button>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+</body>
+</html>

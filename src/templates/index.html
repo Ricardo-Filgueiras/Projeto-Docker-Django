@@ -1,0 +1,676 @@
+{% extends 'base.html' %}
+
+{% block title %}Projeto Lista - Plataforma de Gerenciamento com Django, Docker e UV{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="bg-gradient-to-b from-blue-50 via-white to-white py-24">
+    <div class="container-base">
+        <div class="hero-grid">
+            <div>
+                <span class="badge badge-info mb-6">Novo em 2026</span>
+                <h1 class="text-5xl font-bold tracking-tight mb-6 leading-tight">
+                    Plataforma moderna para <span style="color: var(--color-accent-primary);">gerenciar listas</span> com eficiência
+                </h1>
+                <p class="text-lg text-muted mb-8 max-w-md leading-relaxed">
+                    Construída com Django, containerizada com Docker e otimizada com UV. Uma solução completa para organização operacional que combina robustez e simplicidade.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#features" class="btn btn-primary btn-lg">
+                        <iconify-icon icon="solar:arrow-down-bold"></iconify-icon>
+                        Explorar Funcionalidades
+                    </a>
+                    <a href="#tech" class="btn btn-secondary btn-lg">
+                        <iconify-icon icon="solar:code-2-bold"></iconify-icon>
+                        Stack Tecnológico
+                    </a>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl p-8 text-white aspect-square flex flex-col justify-center items-center gap-8">
+                    <div class="grid grid-cols-3 gap-6 w-full">
+                        <div class="bg-white/20 rounded-lg p-4 text-center backdrop-blur">
+                            <iconify-icon icon="solar:docker-bold" class="text-3xl mb-2"></iconify-icon>
+                            <p class="text-xs font-semibold">Docker</p>
+                        </div>
+                        <div class="bg-white/20 rounded-lg p-4 text-center backdrop-blur">
+                            <iconify-icon icon="solar:settings-bold" class="text-3xl mb-2"></iconify-icon>
+                            <p class="text-xs font-semibold">Moderno</p>
+                        </div>
+                        <div class="bg-white/20 rounded-lg p-4 text-center backdrop-blur">
+                            <iconify-icon icon="solar:lightning-charge-bold" class="text-3xl mb-2"></iconify-icon>
+                            <p class="text-xs font-semibold">Rápido</p>
+                        </div>
+                    </div>
+                    <p class="text-center text-xs text-white/80">
+                        ✨ 100% configurado, pronto para produção
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="py-24">
+    <div class="container-base">
+        <div class="mb-16">
+            <span class="text-xs font-bold uppercase tracking-widest text-muted">Funcionalidades</span>
+            <h2 class="text-4xl font-bold mt-2 mb-4">
+                O que você consegue fazer
+            </h2>
+            <p class="text-lg text-muted max-w-2xl">
+                Uma plataforma completa com tudo que você precisa para gerenciar listas de forma profissional.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Feature 1: User Management -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <iconify-icon icon="solar:users-group-two-rounded-bold" class="text-xl" style="color: var(--color-accent-primary);"></iconify-icon>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">Gerenciamento de Usuários</h3>
+                <p class="text-sm text-muted mb-4">
+                    Sistema completo de autenticação, registro e perfil de usuário. Cada membro tem acesso personalizado.
+                </p>
+                <ul class="text-xs text-muted space-y-2">
+                    <li class="flex gap-2">
+                        <iconify-icon icon="solar:check-circle-bold" style="color: var(--color-semantic-success);"></iconify-icon>
+                        <span>Login e registro seguro</span>
+                    </li>
+                    <li class="flex gap-2">
+                        <iconify-icon icon="solar:check-circle-bold" style="color: var(--color-semantic-success);"></iconify-icon>
+                        <span>Perfil personalizável</span>
+                    </li>
+                    <li class="flex gap-2">
+                        <iconify-icon icon="solar:check-circle-bold" style="color: var(--color-semantic-success);"></iconify-icon>
+                        <span>Controle de sessão</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Feature 2: Home Dashboard -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <iconify-icon icon="solar:home-smile-angle-bold" class="text-xl" style="color: var(--color-accent-primary);"></iconify-icon>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">Dashboard Intuitivo</h3>
+                <p class="text-sm text-muted mb-4">
+                    Visualize todas as suas listas e atividades em um único lugar com informações em tempo real.
+                </p>
+                <ul class="text-xs text-muted space-y-2">
+                    <li class="flex gap-2">
+                        <iconify-icon icon="solar:check-circle-bold" style="color: var(--color-semantic-success);"></iconify-icon>
+                        <span>Visão geral das listas</span>
+                    </li>
+                    <li class="flex gap-2">
+                        <iconify-icon icon="solar:check-circle-bold" style="color: var(--color-semantic-success);"></iconify-icon>
+                        <span>Estatísticas em tempo real</span>
+                    </li>
+                    <li class="flex gap-2">
+                        <iconify-icon icon="solar:check-circle-bold" style="color: var(--color-semantic-success);"></iconify-icon>
+                        <span>Interface responsiva</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Feature 3: Admin Panel -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <iconify-icon icon="solar:settings-minimalist-bold" class="text-xl" style="color: var(--color-accent-primary);"></iconify-icon>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">Painel de Administração</h3>
+                <p class="text-sm text-muted mb-4">
+                    Gerenciamento completo incluindo usuários, permissões, auditoria e configurações avançadas.
+                </p>
+                <ul class="text-xs text-muted space-y-2">
+                    <li class="flex gap-2">
+                        <iconify-icon icon="solar:check-circle-bold" style="color: var(--color-semantic-success);"></iconify-icon>
+                        <span>Admin Django nativo</span>
+                    </li>
+                    <li class="flex gap-2">
+                        <iconify-icon icon="solar:check-circle-bold" style="color: var(--color-semantic-success);"></iconify-icon>
+                        <span>Controle de permissões</span>
+                    </li>
+                    <li class="flex gap-2">
+                        <iconify-icon icon="solar:check-circle-bold" style="color: var(--color-semantic-success);"></iconify-icon>
+                        <span>Auditoria de atividades</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Feature 4: Responsive Design -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <iconify-icon icon="solar:phone-bold" class="text-xl" style="color: var(--color-accent-primary);"></iconify-icon>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">Design Responsivo</h3>
+                <p class="text-sm text-muted mb-4">
+                    Funciona perfeitamente em desktop, tablet e dispositivos móveis. Acesse de qualquer lugar.
+                </p>
+                <ul class="text-xs text-muted space-y-2">
+                    <li class="flex gap-2">
+                        <iconify-icon icon="solar:check-circle-bold" style="color: var(--color-semantic-success);"></iconify-icon>
+                        <span>Mobile-first design</span>
+                    </li>
+                    <li class="flex gap-2">
+                        <iconify-icon icon="solar:check-circle-bold" style="color: var(--color-semantic-success);"></iconify-icon>
+                        <span>Tailwind CSS</span>
+                    </li>
+                    <li class="flex gap-2">
+                        <iconify-icon icon="solar:check-circle-bold" style="color: var(--color-semantic-success);"></iconify-icon>
+                        <span>Performance otimizada</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Feature 5: Security -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <iconify-icon icon="solar:shield-bold" class="text-xl" style="color: var(--color-accent-primary);"></iconify-icon>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">Segurança em Primeiro Lugar</h3>
+                <p class="text-sm text-muted mb-4">
+                    Segurança enterprise com proteção CSRF, SSL/TLS, HSTS e validação de dados rigorosa.
+                </p>
+                <ul class="text-xs text-muted space-y-2">
+                    <li class="flex gap-2">
+                        <iconify-icon icon="solar:check-circle-bold" style="color: var(--color-semantic-success);"></iconify-icon>
+                        <span>Proteção CSRF nativa</span>
+                    </li>
+                    <li class="flex gap-2">
+                        <iconify-icon icon="solar:check-circle-bold" style="color: var(--color-semantic-success);"></iconify-icon>
+                        <span>SSL/TLS em produção</span>
+                    </li>
+                    <li class="flex gap-2">
+                        <iconify-icon icon="solar:check-circle-bold" style="color: var(--color-semantic-success);"></iconify-icon>
+                        <span>HSTS headers</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Feature 6: Deployment -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <iconify-icon icon="solar:rocket-2-bold" class="text-xl" style="color: var(--color-accent-primary);"></iconify-icon>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">Deploy Simplificado</h3>
+                <p class="text-sm text-muted mb-4">
+                    Pronto para produção com Docker, migrations automáticas, static files e configuração por ambiente.
+                </p>
+                <ul class="text-xs text-muted space-y-2">
+                    <li class="flex gap-2">
+                        <iconify-icon icon="solar:check-circle-bold" style="color: var(--color-semantic-success);"></iconify-icon>
+                        <span>Dockerfile + Compose</span>
+                    </li>
+                    <li class="flex gap-2">
+                        <iconify-icon icon="solar:check-circle-bold" style="color: var(--color-semantic-success);"></iconify-icon>
+                        <span>Migrations automáticas</span>
+                    </li>
+                    <li class="flex gap-2">
+                        <iconify-icon icon="solar:check-circle-bold" style="color: var(--color-semantic-success);"></iconify-icon>
+                        <span>Gunicorn + WhiteNoise</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tech Stack Section -->
+<section id="tech" class="py-24 bg-surface">
+    <div class="container-base">
+        <div class="mb-16">
+            <span class="text-xs font-bold uppercase tracking-widest text-muted">Stack Tecnológico</span>
+            <h2 class="text-4xl font-bold mt-2 mb-4">Tecnologias modernas e confiáveis</h2>
+            <p class="text-lg text-muted max-w-2xl">
+                Construído com as melhores ferramentas do desenvolvimento Python, garantindo performance e manutenibilidade.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div class="tech-item">
+                <iconify-icon icon="solar:code-2-bold" class="text-3xl mb-4" style="color: var(--color-accent-primary);"></iconify-icon>
+                <h4 class="font-semibold text-sm">Django 6.0</h4>
+                <p class="text-xs text-muted mt-2">Framework web robusto com batteries included</p>
+            </div>
+            <div class="tech-item">
+                <iconify-icon icon="solar:bug-bold" class="text-3xl mb-4" style="color: #3776AB;"></iconify-icon>
+                <h4 class="font-semibold text-sm">Python 3.12</h4>
+                <p class="text-xs text-muted mt-2">Linguagem moderna e poderosa</p>
+            </div>
+            <div class="tech-item">
+                <iconify-icon icon="solar:docker-bold" class="text-3xl mb-4" style="color: #2496ED;"></iconify-icon>
+                <h4 class="font-semibold text-sm">Docker</h4>
+                <p class="text-xs text-muted mt-2">Containerização e orquestração</p>
+            </div>
+            <div class="tech-item">
+                <iconify-icon icon="solar:lightning-charge-bold" class="text-3xl mb-4" style="color: #FFA500;"></iconify-icon>
+                <h4 class="font-semibold text-sm">UV</h4>
+                <p class="text-xs text-muted mt-2">Gerenciador de pacotes ultra-rápido</p>
+            </div>
+            <div class="tech-item">
+                <iconify-icon icon="solar:database-bold" class="text-3xl mb-4" style="color: #336791;"></iconify-icon>
+                <h4 class="font-semibold text-sm">PostgreSQL</h4>
+                <p class="text-xs text-muted mt-2">Banco de dados robusto e escalável</p>
+            </div>
+            <div class="tech-item">
+                <iconify-icon icon="solar:rocket-2-bold" class="text-3xl mb-4" style="color: #499848;"></iconify-icon>
+                <h4 class="font-semibold text-sm">Gunicorn</h4>
+                <p class="text-xs text-muted mt-2">Servidor WSGI production-ready</p>
+            </div>
+            <div class="tech-item">
+                <iconify-icon icon="solar:palette-2-bold" class="text-3xl mb-4" style="color: #06B6D4;"></iconify-icon>
+                <h4 class="font-semibold text-sm">Tailwind CSS</h4>
+                <p class="text-xs text-muted mt-2">Utility-first CSS framework</p>
+            </div>
+            <div class="tech-item">
+                <iconify-icon icon="solar:wind-bold" class="text-3xl mb-4" style="color: #4A5568;"></iconify-icon>
+                <h4 class="font-semibold text-sm">WhiteNoise</h4>
+                <p class="text-xs text-muted mt-2">Servindo static files eficientemente</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Advantages Section -->
+<section class="py-24">
+    <div class="container-base">
+        <div class="mb-16">
+            <span class="text-xs font-bold uppercase tracking-widest text-muted">Por que escolher</span>
+            <h2 class="text-4xl font-bold mt-2 mb-4">Vantagens competitivas</h2>
+            <p class="text-lg text-muted max-w-2xl">
+                Descubra o que torna este projeto diferente e mais eficiente que alternativas no mercado.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="flex gap-6">
+                <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-ds" style="background-color: rgba(0, 122, 255, 0.1);">
+                        <iconify-icon icon="solar:flash-bold" class="text-xl" style="color: var(--color-accent-primary);"></iconify-icon>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">Performance Otimizada</h3>
+                    <p class="text-sm text-muted">
+                        UV reduz tempo de instalação de dependências em até 10x. Startup rápido e execução otimizada.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex gap-6">
+                <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-ds" style="background-color: rgba(52, 199, 89, 0.1);">
+                        <iconify-icon icon="solar:safety-bold" class="text-xl" style="color: var(--color-semantic-success);"></iconify-icon>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">Segurança em Produção</h3>
+                    <p class="text-sm text-muted">
+                        Configurações de segurança ativadas por padrão: HTTPS, HSTS, CSRF tokens e validação rigorosa.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex gap-6">
+                <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-ds" style="background-color: rgba(255, 149, 0, 0.1);">
+                        <iconify-icon icon="solar:layers-bold" class="text-xl" style="color: var(--color-semantic-warning);"></iconify-icon>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">Arquitetura Escalável</h3>
+                    <p class="text-sm text-muted">
+                        Pronto para escalar horizontalmente com Docker. Suporta múltiplas instâncias e load balancing.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex gap-6">
+                <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-ds" style="background-color: rgba(0, 122, 255, 0.1);">
+                        <iconify-icon icon="solar:book-bold" class="text-xl" style="color: var(--color-accent-primary);"></iconify-icon>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">Documentação Completa</h3>
+                    <p class="text-sm text-muted">
+                        README, scripts de setup, exemplos e guias para desenvolvimento, deployment e troubleshooting.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex gap-6">
+                <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-ds" style="background-color: rgba(52, 199, 89, 0.1);">
+                        <iconify-icon icon="solar:refresh-circle-bold" class="text-xl" style="color: var(--color-semantic-success);"></iconify-icon>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">Fácil Manutenção</h3>
+                    <p class="text-sm text-muted">
+                        Código limpo, migrations automáticas, formatação consistente e padrões Django bem documentados.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex gap-6">
+                <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-ds" style="background-color: rgba(255, 149, 0, 0.1);">
+                        <iconify-icon icon="solar:earth-bold" class="text-xl" style="color: var(--color-semantic-warning);"></iconify-icon>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">Deploy em Qualquer Lugar</h3>
+                    <p class="text-sm text-muted">
+                        Docker compose local, servidor dedicado, Heroku, AWS, DigitalOcean ou qualquer plataforma.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Architecture Best Practices Section -->
+<section class="py-24 bg-surface">
+    <div class="container-base">
+        <div class="mb-16">
+            <span class="text-xs font-bold uppercase tracking-widest text-muted">Arquitetura</span>
+            <h2 class="text-4xl font-bold mt-2 mb-4">Design Robusto e Escalável</h2>
+            <p class="text-lg text-muted max-w-2xl">
+                Implementamos as melhores práticas do Django para garantir escalabilidade, manutenibilidade e segurança.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-surface border border-base rounded-ds p-6">
+                <h3 class="font-semibold text-sm mb-4 flex items-center gap-2">
+                    <iconify-icon icon="solar:layers-bold"></iconify-icon>
+                    Separação de Responsabilidades
+                </h3>
+                <ul class="text-xs text-muted space-y-2">
+                    <li class="flex gap-2">✓ Models para lógica de dados</li>
+                    <li class="flex gap-2">✓ Views para processamento</li>
+                    <li class="flex gap-2">✓ Templates para apresentação</li>
+                    <li class="flex gap-2">✓ URL routing organizado</li>
+                </ul>
+            </div>
+
+            <div class="bg-surface border border-base rounded-ds p-6">
+                <h3 class="font-semibold text-sm mb-4 flex items-center gap-2">
+                    <iconify-icon icon="solar:settings-bold"></iconify-icon>
+                    Configuração por Ambiente
+                </h3>
+                <ul class="text-xs text-muted space-y-2">
+                    <li class="flex gap-2">✓ Settings diferenciados</li>
+                    <li class="flex gap-2">✓ Variáveis de ambiente</li>
+                    <li class="flex gap-2">✓ Secrets seguros</li>
+                    <li class="flex gap-2">✓ Configurações dinâmicas</li>
+                </ul>
+            </div>
+
+            <div class="bg-surface border border-base rounded-ds p-6">
+                <h3 class="font-semibold text-sm mb-4 flex items-center gap-2">
+                    <iconify-icon icon="solar:database-bold"></iconify-icon>
+                    ORM e Migrations
+                </h3>
+                <ul class="text-xs text-muted space-y-2">
+                    <li class="flex gap-2">✓ Django ORM type-safe</li>
+                    <li class="flex gap-2">✓ Migrations automáticas</li>
+                    <li class="flex gap-2">✓ Versionamento de schema</li>
+                    <li class="flex gap-2">✓ Rollback seguro</li>
+                </ul>
+            </div>
+
+            <div class="bg-surface border border-base rounded-ds p-6">
+                <h3 class="font-semibold text-sm mb-4 flex items-center gap-2">
+                    <iconify-icon icon="solar:shield-bold"></iconify-icon>
+                    Middleware e Segurança
+                </h3>
+                <ul class="text-xs text-muted space-y-2">
+                    <li class="flex gap-2">✓ Middleware stack seguro</li>
+                    <li class="flex gap-2">✓ Proteção CSRF automática</li>
+                    <li class="flex gap-2">✓ XSS prevention</li>
+                    <li class="flex gap-2">✓ Sessões seguras</li>
+                </ul>
+            </div>
+
+            <div class="bg-surface border border-base rounded-ds p-6">
+                <h3 class="font-semibold text-sm mb-4 flex items-center gap-2">
+                    <iconify-icon icon="solar:code-bold"></iconify-icon>
+                    Reutilização de Código
+                </h3>
+                <ul class="text-xs text-muted space-y-2">
+                    <li class="flex gap-2">✓ Apps modulares</li>
+                    <li class="flex gap-2">✓ Mixins e utilidades</li>
+                    <li class="flex gap-2">✓ Decoradores customizados</li>
+                    <li class="flex gap-2">✓ Signal handlers</li>
+                </ul>
+            </div>
+
+            <div class="bg-surface border border-base rounded-ds p-6">
+                <h3 class="font-semibold text-sm mb-4 flex items-center gap-2">
+                    <iconify-icon icon="solar:test-tube-bold"></iconify-icon>
+                    Testabilidade
+                </h3>
+                <ul class="text-xs text-muted space-y-2">
+                    <li class="flex gap-2">✓ Unit tests nativos</li>
+                    <li class="flex gap-2">✓ Test database isolado</li>
+                    <li class="flex gap-2">✓ Fixtures e factories</li>
+                    <li class="flex gap-2">✓ CI/CD ready</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Cybersecurity Section -->
+<section class="py-24">
+    <div class="container-base">
+        <div class="mb-16">
+            <span class="text-xs font-bold uppercase tracking-widest text-muted">Proteção de Dados</span>
+            <h2 class="text-4xl font-bold mt-2 mb-4">Cibersegurança Robusta</h2>
+            <p class="text-lg text-muted max-w-2xl">
+                Implementamos camadas múltiplas de proteção para garantir a segurança dos seus dados e da sua aplicação.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Security 1: Authentication -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <iconify-icon icon="solar:lock-password-bold" class="text-xl" style="color: var(--color-accent-primary);"></iconify-icon>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">Autenticação Segura</h3>
+                <p class="text-sm text-muted mb-4">
+                    Sistema de autenticação robusto com hashing de senhas (PBKDF2, bcrypt), proteção contra force brute e controle de sessão.
+                </p>
+                <ul class="text-xs text-muted space-y-2">
+                    <li class="flex gap-2">✓ PBKDF2 com SHA-256</li>
+                    <li class="flex gap-2">✓ Rate limiting em login</li>
+                    <li class="flex gap-2">✓ Expiração de sessão</li>
+                </ul>
+            </div>
+
+            <!-- Security 2: HTTPS/TLS -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <iconify-icon icon="solar:shield-star-bold" class="text-xl" style="color: var(--color-accent-primary);"></iconify-icon>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">Criptografia em Trânsito</h3>
+                <p class="text-sm text-muted mb-4">
+                    Todos os dados em trânsito são protegidos com TLS 1.2+ obrigatório, certificados SSL/TLS válidos e HSTS preload.
+                </p>
+                <ul class="text-xs text-muted space-y-2">
+                    <li class="flex gap-2">✓ TLS 1.2+ obrigatório</li>
+                    <li class="flex gap-2">✓ HSTS habilitado</li>
+                    <li class="flex gap-2">✓ Preload HSTS</li>
+                </ul>
+            </div>
+
+            <!-- Security 3: CSRF Protection -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <iconify-icon icon="solar:bug-bold" class="text-xl" style="color: var(--color-accent-primary);"></iconify-icon>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">Proteção CSRF</h3>
+                <p class="text-sm text-muted mb-4">
+                    Proteção contra ataques Cross-Site Request Forgery com tokens únicos, validação de origem e proteção de cookies.
+                </p>
+                <ul class="text-xs text-muted space-y-2">
+                    <li class="flex gap-2">✓ CSRF tokens por sessão</li>
+                    <li class="flex gap-2">✓ SameSite cookies</li>
+                    <li class="flex gap-2">✓ Validação de referrer</li>
+                </ul>
+            </div>
+
+            <!-- Security 4: SQL Injection Prevention -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <iconify-icon icon="solar:database-bold" class="text-xl" style="color: var(--color-accent-primary);"></iconify-icon>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">Proteção contra SQL Injection</h3>
+                <p class="text-sm text-muted mb-4">
+                    ORM Django previne SQL injection usando query parameterization, validação de entrada e saída de dados.
+                </p>
+                <ul class="text-xs text-muted space-y-2">
+                    <li class="flex gap-2">✓ Query parameterization</li>
+                    <li class="flex gap-2">✓ ORM protection</li>
+                    <li class="flex gap-2">✓ Input validation</li>
+                </ul>
+            </div>
+
+            <!-- Security 5: XSS Protection -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <iconify-icon icon="solar:code-bold" class="text-xl" style="color: var(--color-accent-primary);"></iconify-icon>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">Proteção contra XSS</h3>
+                <p class="text-sm text-muted mb-4">
+                    Sanitização de conteúdo HTML, escaping automático em templates, Content Security Policy e prevenção de inline scripts.
+                </p>
+                <ul class="text-xs text-muted space-y-2">
+                    <li class="flex gap-2">✓ Auto-escaping em templates</li>
+                    <li class="flex gap-2">✓ CSP headers</li>
+                    <li class="flex gap-2">✓ HTML sanitization</li>
+                </ul>
+            </div>
+
+            <!-- Security 6: Access Control -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <iconify-icon icon="solar:us-bold" class="text-xl" style="color: var(--color-accent-primary);"></iconify-icon>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">Controle de Acesso</h3>
+                <p class="text-sm text-muted mb-4">
+                    Sistema de permissões granular, RBAC (Role-Based Access Control), auditoria de acessos e logs de atividades.
+                </p>
+                <ul class="text-xs text-muted space-y-2">
+                    <li class="flex gap-2">✓ Permissões granulares</li>
+                    <li class="flex gap-2">✓ RBAC</li>
+                    <li class="flex gap-2">✓ Audit logging</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Security Best Practices -->
+        <div class="mt-12 bg-surface border border-base rounded-ds p-8">
+            <h3 class="text-xl font-semibold mb-6">Práticas de Segurança Implementadas</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="flex gap-3">
+                    <iconify-icon icon="solar:check-circle-bold" class="text-xl" style="color: var(--color-semantic-success);"></iconify-icon>
+                    <div>
+                        <h4 class="font-semibold text-sm">Validação de Entrada</h4>
+                        <p class="text-xs text-muted">Validação rigorosa de todos os dados de entrada</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <iconify-icon icon="solar:check-circle-bold" class="text-xl" style="color: var(--color-semantic-success);"></iconify-icon>
+                    <div>
+                        <h4 class="font-semibold text-sm">Secrets Management</h4>
+                        <p class="text-xs text-muted">Chaves e segredos em variáveis de ambiente</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <iconify-icon icon="solar:check-circle-bold" class="text-xl" style="color: var(--color-semantic-success);"></iconify-icon>
+                    <div>
+                        <h4 class="font-semibold text-sm">Security Headers</h4>
+                        <p class="text-xs text-muted">Headers de segurança configurados e validados</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <iconify-icon icon="solar:check-circle-bold" class="text-xl" style="color: var(--color-semantic-success);"></iconify-icon>
+                    <div>
+                        <h4 class="font-semibold text-sm">Dependency Scanning</h4>
+                        <p class="text-xs text-muted">Verificação contínua de vulnerabilidades</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <iconify-icon icon="solar:check-circle-bold" class="text-xl" style="color: var(--color-semantic-success);"></iconify-icon>
+                    <div>
+                        <h4 class="font-semibold text-sm">OWASP Compliance</h4>
+                        <p class="text-xs text-muted">Segue as top 10 vulnerabilidades OWASP</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <iconify-icon icon="solar:check-circle-bold" class="text-xl" style="color: var(--color-semantic-success);"></iconify-icon>
+                    <div>
+                        <h4 class="font-semibold text-sm">Secure Defaults</h4>
+                        <p class="text-xs text-muted">Configurações seguras por padrão</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section id="cta" class="py-24">
+    <div class="container-base">
+        <div class="cta-section">
+            <h2 class="text-4xl font-bold mb-4">Pronto para começar?</h2>
+            <p class="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
+                Acesse a aplicação, explore as funcionalidades e veja como o Django com Docker e UV pode transformar seu fluxo de trabalho.
+            </p>
+            <div class="flex gap-4 justify-center flex-wrap">
+                <a href="#features" class="btn bg-white text-blue-600 hover:bg-gray-100 btn-lg">
+                    <iconify-icon icon="solar:info-circle-bold"></iconify-icon>
+                    Conhecer Recursos
+                </a>
+                <a href="#tech" class="btn btn-secondary btn-lg">
+                    <iconify-icon icon="solar:code-2-bold"></iconify-icon>
+                    Tecnologias
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-24 bg-surface">
+    <div class="container-base">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+            <div>
+                <p class="text-4xl font-bold" style="color: var(--color-accent-primary);">6.0</p>
+                <p class="text-sm text-muted mt-2">Django Version</p>
+            </div>
+            <div>
+                <p class="text-4xl font-bold" style="color: var(--color-accent-primary);">3.12</p>
+                <p class="text-sm text-muted mt-2">Python Version</p>
+            </div>
+            <div>
+                <p class="text-4xl font-bold" style="color: var(--color-semantic-success);">100%</p>
+                <p class="text-sm text-muted mt-2">Responsivo</p>
+            </div>
+            <div>
+                <p class="text-4xl font-bold" style="color: var(--color-accent-primary);">0ms</p>
+                <p class="text-sm text-muted mt-2">Startup Time</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
